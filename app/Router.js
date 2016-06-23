@@ -5,6 +5,7 @@ import { Router, match, RouterContext, browserHistory } from 'react-router';
 import Helmet from 'react-helmet';
 import routes from './Routes';
 import { Provider } from 'react-redux';
+import DeviceProvider from './components/DeviceProvider'
 import Root from './containers/Root';
 import configureStore from './configureStore';
 
@@ -12,10 +13,13 @@ const isClient = typeof document !== 'undefined';
 
 if (isClient) {
   const store = configureStore(window.__INITIAL_STATE__);
+  const device = store.getState().device
 
   ReactDOM.render(
     <Provider store={store}>
+      <DeviceProvider device={device}>
       <Router history={browserHistory}>{routes}</Router>
+      </DeviceProvider>
     </Provider>,
     document.getElementById('root')
   );
@@ -26,7 +30,7 @@ function renderComponentWithRoot(Component, componentProps, store) {
     <Provider store={store}>
       <Component {...componentProps} />
     </Provider>
-  );
+  ); // TODO: setup DeviceProvider for server-render
 
   const head = Helmet.rewind();
   const initialState = store.getState();
