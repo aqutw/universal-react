@@ -1,6 +1,8 @@
 /*eslint no-unused-vars: 1*/
 
-import { CALL_API } from '../middleware/api'
+//TODO: import { CALL_API } from '../middleware/api'
+export const CALL_API = Symbol('CALL_API')
+
 export const LOADED_ARTICLES_REQUEST = 'LOADED_ARTICLES_REQUEST'
 export const LOADED_MULTI_TAGGED_ARTICLES_SUCCESS = 'LOADED_MULTI_TAGGED_ARTICLES_SUCCESS'
 export const LOADED_MULTI_TAGGED_ARTICLES_FAILURE = 'LOADED_MULTI_TAGGED_ARTICLES_FAILURE'

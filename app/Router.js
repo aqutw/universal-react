@@ -15,9 +15,10 @@ if (isClient) {
   const store = configureStore(window.__INITIAL_STATE__);
   const device = store.getState().device
 
+  // TODO: do not hard code 'desktop'
   ReactDOM.render(
     <Provider store={store}>
-      <DeviceProvider device={device}>
+      <DeviceProvider device={'desktop'}>
       <Router history={browserHistory}>{routes}</Router>
       </DeviceProvider>
     </Provider>,
