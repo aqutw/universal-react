@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
-import Sticky from 'react-sticky'
+import { Sticky, StickyContainer } from 'react-sticky'
 import classNames from 'classnames'
 import SubNavBar from './SubNavBar'
 import SearchBox from './SearchBox'
@@ -62,6 +62,7 @@ export default class MobileNaviBar extends Component {
     }
 
     return (
+      <StickyContainer>
       <Sticky topOffset={300}>
         <div className={mobileNavClass} style= {{ backgroundColor: backgroundColor }}>
           <div className="nav-logo">
@@ -80,6 +81,7 @@ export default class MobileNaviBar extends Component {
           </div>
         </div>
       </Sticky>
+      </StickyContainer>
     )
   }
 }

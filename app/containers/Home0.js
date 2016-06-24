@@ -5,6 +5,9 @@ import { Link } from 'react-router';
 import * as UsersActions from '../actions/users';
 import UserList from '../components/UserList';
 
+import NavBar from '../components/NavBar'
+import Footer from '../components/Footer'
+
 // @connect(state => { users: state.users })
 class Home extends Component {
 
@@ -36,9 +39,11 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Helmet title='Home' />
-        <h5>Users:</h5>
-        {this.renderUsers()}
+        <NavBar
+          bgStyle={pathname === '/photography' ? 'dark' : 'light'}
+          path={pathname}/>
+        {this.props.children}
+        <Footer/>
       </div>
     );
   }
